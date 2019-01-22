@@ -1,0 +1,496 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>INFO 2950: Introduction to Data Science</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alegreya:400,700,400italic,700italic|Anonymous+Pro:400,700,400italic,700italic|Galdeano:400,700,300">
+    <style>
+
+    h1, h2, h3, h4, h5, h6, p, body, a, img, ul, ol, blockquote, pre {
+      margin: 0; padding: 0; border: 0;
+    }
+
+    body {
+      font-family: 'Alegreya', serif;
+      font-size: 21px;
+      line-height: 1.52;
+      background-color: #f8f8f8;
+      text-rendering: optimizeLegibility;
+    }
+
+    .content-wrap {
+      width: 34em;
+      margin: 0 auto;
+    }
+
+    .topics {
+    	font-size: x-small;
+    }
+
+    body, a {
+      color: #171717;
+    }
+
+    a:hover {
+      color: #ff8000;
+      text-decoration: underline;
+    }
+
+    p {
+      margin-bottom: 1.52em;
+    }
+
+    pre {
+      font-size: 0.9em;
+      overflow: auto;
+      background: #fff;
+      border: 1px dashed #d2d2d2;
+      border-radius: 0.25em;
+      margin-bottom: 1.8em;
+      padding: 1em;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 1em;
+    }
+
+    h2 {
+      font-size: 1.2em;
+      font-weight: 400;
+      line-height: 1.43;
+      margin-bottom: 1.35em;
+    }
+
+    h3 {
+      font-style: italic;
+      text-align: center;
+      font-weight: 400;
+      font-size: 1.4em;
+      margin-top: 1.8em;
+      margin-bottom: 0.8em;
+    }
+
+    ol, ul {
+      margin: 0 1.4em 1.4em 4em;
+    }
+
+    li {
+      margin-bottom: 0.5em;
+    }
+
+    blockquote {
+      margin: 1.2em 3em;
+      padding-left: 1em;
+      font-style: italic;
+    }
+
+    hr {
+      border: 0;
+      border-top: 1px dashed #d2d2d2;
+      height: 0;
+      margin: 1.6em 0;
+    }
+
+    /* page header */
+
+    .header {
+      margin: 3em 0 5em;
+    }
+
+    .header h1 {
+      font-size: 2.6em;
+      text-align: center;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .header a, .header a:hover {
+      text-decoration: none;
+      color: #171717;
+    }
+
+    .header .author {
+      font-family: 'Galdeano', serif;
+      font-variant: small-caps;
+      text-transform: lowercase;
+      text-rendering: auto;
+      text-align: center;
+      font-weight: 400;
+      letter-spacing: 1px;
+    }
+
+    .header .description {
+      font-size: 1.2em;
+      font-style: italic;
+      text-align: center;
+      margin-top: -0.3em;
+    }
+
+    body.article-detail > header h1 {
+      font-size: 2.5em;
+      font-style: italic;
+      font-weight: 400;
+      margin-bottom: -0.2em;
+    }
+
+    body.article-detail > header {
+      margin-bottom: 3em;
+    }
+
+    /* page footer */
+
+    footer {
+      margin: 3em 0;
+    }
+
+    footer .nav {
+      text-align: center;
+      margin-top: 5em;
+      margin-bottom: 3.5em;
+    }
+
+    footer .nav a {
+      padding: 0 0.5em;
+      font-size: 1.2em;
+      text-decoration: none;
+    }
+
+    footer .about {
+      border-top: 1px dashed #d2d2d2;
+      padding: 2.2em 3em;
+      font-size: 0.7em;
+      -webkit-column-count: 3;
+      -moz-column-count: 3;
+      -ms-column-count: 3;
+      column-count: 3;
+      -webkit-column-gap: 2em;
+      -moz-column-gap: 2em;
+      -ms-column-gap: 2em;
+      column-gap: 2em;
+    }
+
+    footer .copy {
+      text-align: center;
+      font-size: 0.7em;
+      font-style: italic;
+      margin-top: 1em;
+    }
+
+    footer .copy, footer .copy a {
+      color: #8e8e8e;
+    }
+
+    /* article */
+
+    .article {
+      margin: 3em 0 4em;
+    }
+
+    .article header {
+      border-top: 1px dashed #d2d2d2;
+    }
+
+    .article header h2 {
+      font-style: italic;
+      text-align: center;
+      font-weight: 400;
+      margin: 0.8em 0;
+      font-size: 1.4em;
+    }
+
+    .article header h2 a {
+      text-decoration: none;
+    }
+
+    .article header .date {
+      text-align: center;
+      font-size: 0.8em;
+      margin-top: -0.7em;
+    }
+
+    .article header .date span {
+      background-color: #f8f8f8;
+      padding: 0 0.7em;
+    }
+
+    .article.intro .content p {
+      display: inline;
+    }
+
+    .article.intro .content .more {
+      text-decoration: underline;
+      font-weight: 700;
+      padding-left: 0.3em;
+    }
+
+    .article .content img {
+      display: block;
+      width: 100%;
+    }
+
+    .more, .date {
+      font-family: 'Galdeano', serif;
+      font-variant: small-caps;
+      text-transform: lowercase;
+      font-weight: 400;
+      text-rendering: auto;
+      letter-spacing: 1px;
+    }
+
+    /* archive */
+
+    .archive {
+      width: 32em;
+      margin: 5em auto 6em;
+      padding-left: 2em;
+    }
+
+    .archive h2 {
+      font-size: 2em;
+      margin: 0;
+      margin-left: 6.1em;
+      margin-bottom: 0.5em;
+      font-style: italic;
+    }
+
+    .archive a, .archive span{
+      display: block;
+      float: left;
+      margin-bottom: -1px;
+      text-decoration: none;
+    }
+    .archive li:not(:last-child) {
+    	border-bottom: 1px solid #d2d2d2;
+    	margin-bottom: -1px;
+    }
+
+    .archive a.last, .archive span.last {
+      border: 0;
+      margin-bottom: 0;
+    }
+
+    .archive a {
+      width: 21em;
+      text-indent: 1em;
+      white-space: nowrap;
+    }
+
+    .archive .year-label,
+    .archive .month-label{
+      width: 4em;
+      font-family: 'Galdeano', serif;
+      font-variant: small-caps;
+      text-transform: lowercase;
+      font-weight: 400;
+      text-rendering: auto;
+      letter-spacing: 1px;
+      text-align: center;
+    }
+
+    .archive .month-label {
+      width: 7em;
+    }
+
+    .archive ul {
+      list-style: none;
+      margin: 0;
+    }
+
+    .archive ul li {
+      margin: 0;
+    }
+
+    /* code styling */
+
+    code {
+      font-family: 'Anonymous Pro', monospace;
+      font-size: 0.85em;
+      color: #000;
+    }
+
+    pre code {
+      display: block;
+      line-height: 1.1;
+    }
+
+    p code {
+      padding: 0.1em 0.3em 0.2em;
+      border-radius: 0.3em;
+      position: relative;
+      top: -0.15em;
+      background: #444;
+      color: #fff;
+      white-space: nowrap;
+    }
+
+    /* syntax hl stuff */
+
+    code.lang-markdown {
+      color: #424242;
+    }
+
+    code.lang-markdown .header,
+    code.lang-markdown .strong {
+      font-weight: bold;
+    }
+
+    code.lang-markdown .emphasis {
+      font-style: italic;
+    }
+
+    code.lang-markdown .horizontal_rule,
+    code.lang-markdown .link_label,
+    code.lang-markdown .code,
+    code.lang-markdown .header,
+    code.lang-markdown .link_url {
+      color: #555;
+    }
+
+    code.lang-markdown .blockquote,
+    code.lang-markdown .bullet {
+      color: #bbb;
+    }
+
+    /* media queries */
+
+    @media (min-width: 1600px) {
+      body { font-size: 26px; }
+    }
+
+    @media (max-width: 900px) {
+      body { font-size: 18px; }
+    }
+
+    @media (max-width: 690px) {
+      .content-wrap {
+        width: auto;
+        padding: 0 1em;
+      }
+      .header {
+        margin: 1em 0;
+      }
+      .header h1 {
+        font-size: 1.4em;
+        margin-bottom: 0.6em;
+      }
+      .header .description {
+        font-size: 1em;
+      }
+      .article {
+        margin: 1em 0 2.5em;
+      }
+      .archive {
+        width: 80%;
+        margin: 0 auto;
+      }
+      .archive * {
+        float: none !important;
+        line-height: 1.6 !important;
+        width: auto !important;
+        height: auto !important;
+        text-align: left !important;
+        border: 0 !important;
+        margin: 0 !important;
+      }
+      footer .nav {
+        margin: 1em 0;
+      }
+      footer .about {
+        padding: 0;
+        font-size: 0.9em;
+        padding-top: 1.6em;
+        -webkit-column-count: 1;
+        -moz-column-count: 1;
+        -ms-column-count: 1;
+        column-count: 1;
+      }
+      footer .about p {
+        margin-bottom: 1em;
+      }
+    }
+    
+    </style>
+    <link rel="icon" href="/m.png">
+  </head>
+  <body class="article-detail">
+    <header class="header">
+      <div class="content-wrap">
+        <h1>INFO 2950: Intro to Data Science</h1>
+        <p class="author"><span class="author"><a href="mailto:mimno, cornell.edu">David Mimno</a>, Tuesday/Thursday 1:25-2:40, Spring 2019, Hollister B14</span>
+        </p>
+      </div>
+    </header>
+<div id="content">
+<div class="content-wrap">
+<article class="article">
+
+<section class="content">
+ <h2>Syllabus</h2>
+
+<p>For questions use <a href="https://campuswire.com/p/GA3476E54">Campuswire</a>, a new Piazza alternative. Use the code 4212 to join the class. All assignments and submissions will happen through CMS (details to come).
+</p>
+</section>
+
+
+<section class="content">
+<p>
+Goal: Students will be able to select and apply common statistical methods to real-world settings, and assess the validity of results.
+Topics will include combinatorics, data-intensive programming, probability, regression, matrix factorization, Markov chains, and graph algorithms.
+</p>
+</section>
+
+
+
+<section class="content">
+<h3>Schedule</h3>
+<p><b>Probability.</b> Being certain about uncertainty. Estimating probabilities by counting and from data. Turning probabilities into other probabilities. Bayes' Theorem. Simulating random processes. File and string manipulation. Regular expressions. Word counting. Naive Bayes classifiers.
+</p>
+
+<p><b>Statistical modeling.</b> Combining information. Making predictions. Measuring confidence. Gaussian distributions. Lots of other distributions. Variable transformations. Single-variable regression. Hypothesis testing. Multi-variable regression. Poisson and logistic regression.</p>
+
+<p><b>Clustering and representation learning.</b> Finding patterns. Distance functions. Iterative algorithms. k-Means clustering. Vectors and inner/outer products. Matrix factorization. SVD, NMF. Eigenvectors and random walk algorithms.</p>
+
+<p></p>
+</section>
+
+
+
+<section class="content">
+<h3>Course policies</h3>
+<p>
+  Grading will be 50% problem sets, 25% Final exam/project, 20% Midterm exam, 5% Professionalism (attendance, participation, etc).
+</p>
+
+<p>Students with disabilities: We will make every effort possible to ensure that the class works for all students. Contact
+Prof. Mimno if there is anything we should know about. If there is a specific event such as
+an exam that you are concerned about, please inform us at least two weeks in advance so
+that we have time to make arrangements.
+</p>
+
+<p>SONA Credits
+Many researchers on campus need participants for user studies and other types of
+experiments. The SONA system allows you to register for such studies. You will get 0.5
+percent extra for this course, up to a maximum of 2.0 percent, for each 30 minute study (or
+equivalent). Participating in studies is a great way to find out what real research looks like.
+To register, go to 
+ <a href="https://cornell-comm.sona-systems.com">the SONA system</a>.
+</p>
+
+<p>
+Attendance: You have to come to class. All Friday sessions will take attendance, Tuesday/Thursday lectures will take attendance at random intervals.
+</p>
+
+<p>Slip days: Each student can take up to five "slip days" for homework with no penalty. These are designed to accommodate ordinary stresses and mishaps: the three prelims that you have at the same time, the interview in California (good luck!), the cold that knocks you out for a day. If you turn in the wrong file or an unreadable file we will notify you within 12 hours, resubmitting the correct file will cost one slip day. For out of the ordinary events write to Prof. Mimno or a TA: serious injuries or health problems, family emergencies, etc. It's ok to not be ok!. But we can only help you if you tell us that something isn't right when we still have time to do something about it.
+</p>
+
+<p>Integrity:
+  We will follow university policies as outlined in the Academic Integrity Handbook. You should not take credit for work you did not do. You should not tolerate any other student doing so. You may discuss homework problems, but you have to write your own answers by yourself. You may consult online forums or look at examples, but you cannot copy text or code from them. You are not helping your friend by allowing them to not learn. You do not deserve a good grade because you are smart: there is no such thing as an "A" student, only "A" work. Remember that the focus of this class is identifying statistically unlikely patterns in data.
+</p>
+</section>
+
+</article>
+</div>
+</div>
+</body>
+</html>
